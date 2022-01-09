@@ -1,0 +1,36 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+
+{% load static %}
+
+<div class="container">
+
+    <div class="row justify-content-md-center">
+        <h1 class="text-center py-5">Portfolio of Caroline</h1>
+        <img src="{% static '/portfolio/carozum.jpeg' %}" alt="">
+    </div>
+
+
+    <div class="row py-5">
+        {% for project in projects %}
+        <div class="col-sm-6 col-md-4 p-3">
+
+            <h2 class="py-1">{{ project.title }}</h2>
+            <img src="{{ project.image.url }}" alt="" width="100%">
+            <p class="py-1">{{ project.description }}</p>
+
+            {% if project.url %}
+            <div class="py-2 ">
+                <a class="btn btn-outline-success" href="{{ project.url }}">Consulter le
+                    projet</a>
+            </div>
+
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

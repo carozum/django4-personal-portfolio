@@ -1,0 +1,27 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        <h1 class="py-3">My best Gluten Free recipes</h1>
+
+        <h2 class="py-3">There are {{ blogs.count }} recipe{{ blogs.count|pluralize }}</h2>
+    </div>
+
+
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-sm-6 col-md-4 py-3 px-3 text-center">
+            <h2><a href="{% url 'blog:detail' blog.id %}" target="blank">{{blog.title}}</a></h2>
+            <h5>{{blog.date|date:'M d Y'|upper}}</h5>
+            <p>
+                {{blog.description|striptags|truncatechars:100}}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}
