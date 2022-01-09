@@ -1,0 +1,43 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="container text-center">
+    <h1>This is a Password Generator</h1>
+    <!-- <p>My password is : {{ password }}</p> -->
+
+    <form action="{% url 'password' %}">
+        <select name="length" id="">
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10" selected>10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+        </select> Length
+        <br>
+
+        <label class="pointer" for="uppercase">
+            <input type="checkbox" id="uppercase" name="uppercase"> Uppercase
+        </label>
+        <br>
+        <label class="pointer" for="numbers">
+            <input type="checkbox" id="numbers" name="numbers"> Numbers
+        </label>
+        <br>
+        <label class="pointer" for="specials">
+            <input type="checkbox" id="specials" name="specials"> Special Characters
+        </label>
+        <br>
+        <input class="btn btn-warning btn-lg" class="pointer" type="submit" value="generate password">
+
+    </form>
+    <br>
+    <footer>
+        <a class="btn btn-outline-success btn-sm" href="{% url 'about' %}">Want to know more about the developer of
+            this application</a>
+    </footer>
+
+</div>
+{% endblock %}

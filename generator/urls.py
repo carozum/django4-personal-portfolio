@@ -1,4 +1,4 @@
-"""personal_portfolio URL Configuration
+"""pwdGen URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,21 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from portfolio import views
+
+from django.urls import path
+from generator import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('generator/', include('generator.urls')),
-    path('blog/', include('blog.urls')),
+    path('', views.generator, name='generator'),
+    path('contact/', views.contact),
+    path('password/', views.password, name='password'),
+    path('about/', views.about, name="about"),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT )
-
-# https://docs.djangoproject.com/fr/4.0/howto/static-files/
-
-
