@@ -8,3 +8,7 @@ body{
 h1{
     font-family: 'Pacifico', cursive;
 }
+.pointer:hover {
+    color: blue;
+    cursor: pointer;
+}
